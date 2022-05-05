@@ -6,9 +6,6 @@ public class Benutzerverwaltung {
     
     
     public Benutzerverwaltung() {
-        
-        
-        
     }
     
     public void neuenNutzerAnlegen(String benutzername, String pw) {
