@@ -8,7 +8,7 @@ public class FreundschaftsstrukturTester {
        
        friendship.freundschaftsGraphErzeugen();
        friendship.printGraph();
-       System.out.println(friendship.checkFriendship("dsfnsdn", "Jens"));
+       System.out.println(friendship.checkFriendship("VertexID1", "VertexID2"));
         
 }
     
