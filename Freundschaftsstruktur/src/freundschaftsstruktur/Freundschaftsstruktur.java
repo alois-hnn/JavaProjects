@@ -44,8 +44,6 @@ public class Freundschaftsstruktur {
     
     public boolean checkFriendship(String id1, String id2) {
         
-        System.out.println(graph.getEdge(new Vertex(id1), new Vertex(id2)));
-        
         Vertex v1 = graph.getVertex(id1);
         Vertex v2 = graph.getVertex(id2);
         
@@ -54,6 +52,38 @@ public class Freundschaftsstruktur {
         }
         return true;
         
+    }
+    
+    public int getGrad(String id) {
+        
+        Vertex v = graph.getVertex(id);
+        int grad = 0;
+        List<Edge> edges = graph.getEdges(v);
+        edges.toFirst();
+        
+        
+        while(edges.hasAccess()) {
+            grad++;
+            edges.next();
+        }
+        
+        return grad;
+    }
+    
+    public int minimalgrad() {
+        List<Vertex> vertices = graph.getVertices();
+        
+        vertices.toFirst();
+        Vertex min = vertices.getContent();
+        
+        while(vertices.hasAccess()) {
+            if(getGrad(vertices.getContent().getID()) < getGrad(min.getID())) {
+                min = vertices.getContent();
+            }
+            vertices.next();
+        }
+        
+        return getGrad(min.getID());
     }
     
     public void printGraph() {
